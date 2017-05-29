@@ -2,25 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*" %>
 <%@ page import="com.tongxunlu.Contact" %>
-<%
-String action = request.getParameter("action");
-boolean isAdd = action.equals("add");
-boolean isEdit = action.equals("edit");
-String id = (String) request.getAttribute("id");
-String name = (String)request.getAttribute("name");
-String sex = (String)request.getAttribute("sex");
-String age = (String)request.getAttribute("age");
-String phoneNumber = (String)request.getAttribute("phoneNumber");
-String wechat = (String)request.getAttribute("wechat");
-String workAddress = (String)request.getAttribute("workAddress");
-String homeAddress = (String)request.getAttribute("homeAddress");
-String description = (String)request.getAttribute("description");
-%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%= isAdd ? "新建联系人" : "修改联系人"%></title>
 <style type="text/css">
 fieldset
 {
@@ -62,9 +47,9 @@ ul a:hover
 	color:#669966;
 }
 </style>
+<title>新建联系人</title>
 </head>
 <body>
-
 <ul>
 <li><a href="http://localhost:8080/addressList/home.html">主页</a></li>
 <li><a href="http://localhost:8080/addressList/addContact.jsp?action=add">新建联系人</a></li>
@@ -72,67 +57,58 @@ ul a:hover
 </ul>
 <div>
 <fieldset>
-<legend><%= isAdd ? "新建联系人" : "修改联系人"%></legend>
-<form action="/addressList/ContactController">
-<input type="hidden" name="action" value="<%= isAdd ? "add" : "save" %>" />
-<input type="hidden" name="id" value="<%= isAdd ? "" : id %>" />
+<legend>新建联系人</legend>
+<form action="/addressList/ContactController" method="post" >
+<input type="hidden" name="action" value="add" />
 <table>
 <tr>
 	<th><b>姓名</b></th>
-	<td><input type="text" name="name"
-			value="<%= isAdd ? "" : name %>" autofocus /></td>
+	<td><input type="text" name="name" autofocus /></td>
 </tr>
 
 <tr>
 	<th><b>性别</b></th>
 	<td>
-		<input type="radio" name="sex" value="男" id="sex_male"
-		<%= isEdit && "男".equals(sex) ? "checked" : "" %> /> 
+		<input type="radio" name="sex" value="男" id="sex_male" /> 
 		<label for="sex_male">男</label> 
-		<input type="radio" name="sex" value="女" id="sex_female"
-		<%= isEdit && "女".equals(sex) ? "checked" : "" %> /> 
+		<input type="radio" name="sex" value="女" id="sex_female" /> 
 		<label for="sex_female">女</label>
 	</td>
 </tr>
 
 <tr>
 	<th><b>年龄</b></th>
-	<td><input type="text" name="age"
-		value="<%= isAdd ? "" : age %>" /></td>
+	<td><input type="text" name="age" /></td>
 </tr>
 
 <tr>
 	<th><b>电话</b></th>
-	<td><input type="text" name="phoneNumber"
-		value="<%= isAdd ? "" : phoneNumber %>" /></td>
+	<td><input type="text" name="phoneNumber" /></td>
 </tr>
 
 <tr>
 	<th><b>微信</b></th>
-	<td><input type="text" name="wechat"
-			value="<%= isAdd ? "" : wechat %>" /></td>
+	<td><input type="text" name="wechat" /></td>
 </tr>
 
 <tr>
 	<th><b>工作单位</b></th>
-	<td><input type="text" name="workAddress"
-			value="<%= isAdd ? "" : workAddress %>" /></td>
+	<td><input type="text" name="workAddress" /></td>
 </tr>
 
 <tr>
 	<th><b>家庭住址</b></th>
-	<td><input type="text" name="homeAddress"
-		value="<%= isAdd ? "" : homeAddress %>" /></td>
+	<td><input type="text" name="homeAddress" /></td>
 </tr>
 
 <tr>
 	<th><b>备注</b></th>
-	<td><textarea name="description"><%= isAdd ? "" : description %></textarea></td>
+	<td><textarea name="description"></textarea></td>
 </tr>
 
 <tr>
 	<th></th>
-	<td><input type="submit" value="<%= isAdd ? "添加" : "修改" %>" /></td>
+	<td><input type="submit" value="添加" /></td>
 </tr>
 
 </table>

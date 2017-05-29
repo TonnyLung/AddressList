@@ -159,22 +159,4 @@ public class ContactUtil {
 		}
 		return list;
 	}
-	
-	public static Contact saveBean(String name, String sex, String age, String phoneNumber,
-			String wechat, String workAddress, String homeAddress, String description) {
-		Contact contact = new Contact();
-		contact.setName(name);
-		contact.setSex(sex);
-		contact.setAge(Integer.parseInt(age));
-		contact.setPhoneNumber(phoneNumber);
-		contact.setWechat(wechat);
-		contact.setWorkAddress(workAddress);
-		contact.setHomeAddress(homeAddress);
-		contact.setDescription(description);
-		return contact;
-	}
-	
-	public static Contact getBean(String id) throws NumberFormatException, SQLException {
-		return ContactDAOImpl.find(Integer.parseInt(id));
-	}
 }
