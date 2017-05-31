@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@ page import="com.tongxunlu.ContactDAOImpl" %>
+<%@ page import="tongxunlu.dao.ContactDAOImpl" %>
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
-<%@ page import="com.tongxunlu.Contact" %>
+<%@ page import="tongxunlu.domain.Contact" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -128,6 +128,7 @@ if(message != null){
 <th>ID</th>
 <th>姓名</th>
 <th>性别</th>
+<th>年龄</th>
 <th>电话</th>
 <th>微信</th>
 <th>工作单位</th>
@@ -147,6 +148,7 @@ for(int i = 0; i < list.size(); i++) {
 <td><%= contact.getId() %></td>
 <td><%= contact.getName() %></td>
 <td><%= contact.getSex() %></td>
+<td><%= contact.getAge() %></td>
 <td><%= contact.getPhoneNumber() %></td>
 <td><%= contact.getWechat() %></td>
 <td><%= contact.getWorkAddress() %></td>

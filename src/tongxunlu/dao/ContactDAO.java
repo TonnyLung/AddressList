@@ -1,7 +1,9 @@
-package com.tongxunlu;
+package tongxunlu.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+
+import tongxunlu.domain.Contact;
 
 public interface ContactDAO {
 	public int insert(Contact contact) throws SQLException;

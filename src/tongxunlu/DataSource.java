@@ -1,4 +1,4 @@
-package com.tongxunlu;
+package tongxunlu;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

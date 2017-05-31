@@ -1,7 +1,10 @@
-package com.tongxunlu;
+package tongxunlu.dao;
 
 import java.sql.SQLException;
 import java.util.List;
+
+import tongxunlu.domain.Contact;
+import tongxunlu.util.ContactUtil;
 
 public class ContactDAOImpl implements ContactDAO {
 	public int insert(Contact contact) throws SQLException {

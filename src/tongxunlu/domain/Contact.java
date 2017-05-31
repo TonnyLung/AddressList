@@ -1,4 +1,4 @@
-package com.tongxunlu;
+package tongxunlu.domain;
 
 import java.sql.Timestamp;
 
@@ -8,7 +8,7 @@ public class Contact {
 	private String sex;
 	private String phoneNumber;
 	private String wechat;
-	private int age;
+	private Integer age;
 	private String workAddress;
 	private String homeAddress;
 	private String description;
@@ -45,10 +45,10 @@ public class Contact {
 	public void setWechat(String wechat) {
 		this.wechat = wechat;
 	}
-	public int getAge() {
+	public Integer getAge() {
 		return age;
 	}
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 	public String getWorkAddress() {

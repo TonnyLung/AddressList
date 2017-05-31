@@ -1,11 +1,31 @@
+<%--
+  Created by Eclipse
+  Author: TonnyLung
+  Date: 17/5/25
+--%>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="java.util.*" %>
-<%@ page import="com.tongxunlu.Contact" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<script>
+function volidate(form) {
+	volidate1(form);
+	volidate2(form);
+}
+function volidate1(form) {
+	if (form.name.value=="") {
+		alert("请输入姓名！");
+	}
+}
+function volidate1(form) {
+	if (form.phoneNumber.value=="") {
+		alert("请输入电话号码！");
+	}
+}
+</script>
 <style type="text/css">
 fieldset
 {
@@ -47,6 +67,7 @@ ul a:hover
 	color:#669966;
 }
 </style>
+
 <title>新建联系人</title>
 </head>
 <body>
@@ -58,7 +79,7 @@ ul a:hover
 <div>
 <fieldset>
 <legend>新建联系人</legend>
-<form action="/addressList/ContactController" method="post" >
+<form name="form" action="/addressList/ContactController" method="post" >
 <input type="hidden" name="action" value="add" />
 <table>
 <tr>
@@ -108,7 +129,7 @@ ul a:hover
 
 <tr>
 	<th></th>
-	<td><input type="submit" value="添加" /></td>
+	<td><input type="submit" onclick="validate(form)" value="添加" /></td>
 </tr>
 
 </table>

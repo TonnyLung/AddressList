@@ -1,4 +1,4 @@
-package com.tongxunlu;
+package tongxunlu.model;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -10,6 +10,11 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import tongxunlu.dao.ContactDAO;
+import tongxunlu.dao.ContactDAOImpl;
+import tongxunlu.domain.Contact;
+import tongxunlu.util.BeanHandler;
 
 
 @WebServlet(name="ContactModel", value="/ContactModel")

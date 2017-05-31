@@ -1,4 +1,4 @@
-package com.tongxunlu;
+package tongxunlu.util;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,6 +10,9 @@ import java.sql.Timestamp;
 import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+
+import tongxunlu.DataSource;
+import tongxunlu.domain.Contact;
 
 public class ContactUtil {
 	public static int executeUpdate(String sql) throws SQLException {
