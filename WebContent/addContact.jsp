@@ -10,7 +10,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<script>
+<!-- <script>
 function volidate(form) {
 	volidate1(form);
 	volidate2(form);
@@ -25,7 +25,7 @@ function volidate1(form) {
 		alert("请输入电话号码！");
 	}
 }
-</script>
+</script> -->
 <style type="text/css">
 fieldset
 {
@@ -129,7 +129,7 @@ ul a:hover
 
 <tr>
 	<th></th>
-	<td><input type="submit" onclick="validate(form)" value="添加" /></td>
+	<td><input type="submit" value="添加" /></td>
 </tr>
 
 </table>
