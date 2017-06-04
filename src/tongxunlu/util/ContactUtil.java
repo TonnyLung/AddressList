@@ -72,11 +72,15 @@ public class ContactUtil {
 		Connection conn = null;
 		Statement stmt = null;
 		ResultSet rs = null;
+		int rc = 0;
 		try {
 			conn = DataSource.getConnection();
 			stmt = conn.createStatement();
 			rs = stmt.executeQuery(sql);
-			return rs.getInt(1);
+			while(rs.next()){
+				rc = rs.getInt(1);
+			}
+			return rc;
 		} catch(SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -126,7 +130,7 @@ public class ContactUtil {
 		return contact;
 	}
 	
-	public static List<Contact> executeQuery(String sql) throws SQLException {
+	public static List<Contact> executeQuery(String sql, Object...params) throws SQLException {
 		List<Contact> list = new ArrayList<>();
 		Connection conn = null;
 		PreparedStatement prestmt = null;
@@ -134,6 +138,7 @@ public class ContactUtil {
 		try {
 			conn = DataSource.getConnection();
 			prestmt = conn.prepareStatement(sql);
+			setParam(prestmt, params);
 			rs = prestmt.executeQuery();
 			while(rs.next()) {
 				Contact contact = new Contact();

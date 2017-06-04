@@ -11,10 +11,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
+
 import tongxunlu.dao.ContactDAO;
 import tongxunlu.dao.ContactDAOImpl;
 import tongxunlu.domain.Contact;
 import tongxunlu.util.BeanHandler;
+import tongxunlu.util.ContactUtil;
 
 
 @WebServlet(name="ContactModel", value="/ContactModel")
@@ -30,7 +33,7 @@ public class ContactModel extends HttpServlet {
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+		Logger log = Logger.getLogger("ContactMolde");
 		request.setCharacterEncoding("utf8");
 		response.setCharacterEncoding("utf8");
 		String action = request.getParameter("action");
@@ -106,10 +109,32 @@ public class ContactModel extends HttpServlet {
 				request.getRequestDispatcher("/ContactController?action=findAll").forward(request, response);
 			}
 		} else if(action.equals("findAllModel")) {
+			
 			try {
+				String sql = "select count(*) from contact";
+				int recordCount = ContactUtil.getCount(sql);		//通过查询获得的总记录数
+				int pageSize = 10;      			//一页显示10条记录
+				int pageNum = 1;					//当前页面
+				int pageCount = 1;					//初始化总页面
+				pageCount = (recordCount + pageSize - 1) / pageSize;   //计算总页面
+				String sPageNum = request.getParameter("pageNum");
+				if (sPageNum != null && !sPageNum.equals("")){
+					pageNum = Integer.parseInt(sPageNum);
+				} else {
+					pageNum = 1;
+				}
+				log.info("pageNum: " + pageNum);
+				String pageUrl = request.getRequestURI();
+				pageUrl = pageUrl + "?action=findAllModel";
+				log.info("pageUrl: " + pageUrl);
+				int startRecord = (pageNum -1) * pageSize;
 				ContactDAO contactDAO = new ContactDAOImpl();
-				List<Contact> list = contactDAO.findAll();
+				List<Contact> list = contactDAO.findAll(startRecord, pageSize);
 				request.setAttribute("list", list);
+				request.setAttribute("pageNum", pageNum);
+				request.setAttribute("pageCount", pageCount);
+				request.setAttribute("recordCount", recordCount);
+				request.setAttribute("pageUrl", pageUrl);
 				request.getRequestDispatcher("/ContactController?action=findAllView").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();

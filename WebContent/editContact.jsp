@@ -70,6 +70,8 @@ String description = (String)request.getAttribute("description");
 <form action="/addressList/ContactController" method="post" >
 <input type="hidden" name="action" value="save" />
 <input type="hidden" name="id" value="<%= id %>" />
+<input type="hidden" name="id" value="<%= id %>" />
+<input type="hidden" name="id" value="<%= request.getParameter("paegNum") %>" />
 <table>
 <tr>
 	<th><b>姓名</b></th>

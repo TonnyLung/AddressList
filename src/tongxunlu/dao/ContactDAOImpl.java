@@ -34,8 +34,8 @@ public class ContactDAOImpl implements ContactDAO {
 		return ContactUtil.executeQuery(contact,sql);
 	}
 	
-	public List<Contact> findAll() throws SQLException {
-		String sql = "select * from contact";
-		return ContactUtil.executeQuery(sql);
+	public List<Contact> findAll(int startRecord, int pageSize) throws SQLException {
+		String sql = "select * from contact limit ?, ?";
+		return ContactUtil.executeQuery(sql, startRecord, pageSize);
 	}
 }

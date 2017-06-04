@@ -5,6 +5,8 @@
 <%@ page import="java.util.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="tongxunlu.domain.Contact" %>
+<%@ page import="tongxunlu.model.ContactModel" %>
+<%@ page import="tongxunlu.util.Pagination" %>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -138,6 +140,10 @@ if(message != null){
 <th>操作</th>
 </tr>
 <%
+int pageNum = (int)request.getAttribute("pageNum"); 
+int pageCount = (int)request.getAttribute("pageCount"); 
+int recordCount = (int)request.getAttribute("recordCount"); 
+String pageUrl = (String)request.getAttribute("pageUrl");
 if(request.getAttribute("list") != null){
 ArrayList<Contact> list = (ArrayList<Contact>)request.getAttribute("list");
 for(int i = 0; i < list.size(); i++) {
@@ -156,9 +162,9 @@ for(int i = 0; i < list.size(); i++) {
 <td><%= contact.getDescription() %></td>
 <td><%= contact.getCreateTime() %></td>
 <td>
-	<a href="/addressList/ContactController?action=delete&id=<%= contact.getId() %>">
+	<a href="/addressList/ContactController?action=delete&id=<%= contact.getId()%>&pageNum=<%= pageNum %>">
 	删除</a> 
-	<a href="/addressList/ContactController?action=edit&id=<%= contact.getId() %>">
+	<a href="/addressList/ContactController?action=edit&id=<%= contact.getId()%>&pageNum=<%= pageNum %>">
 	修改</a>
 </td>
 </tr>
@@ -177,6 +183,7 @@ for(int i = 0; i < list.size(); i++) {
 <tr>
 <td>
 	<input type="hidden" name="action" value="delete" />
+	<input type="hidden" name="pageNum" value="<%= pageNum %>" />
 	<a href="#" onclick="myFunction()">全选</a>
 	<a href="#" onclick="myFunction2()">取消全选</a>
 	<input type="submit" style="width:40px; height:20; font-size:1em;"
@@ -184,6 +191,11 @@ for(int i = 0; i < list.size(); i++) {
 </td>
 </tr>
 </table>
+<div>
+<span>
+	<%= Pagination.getPagenation(pageNum, pageCount, recordCount, pageUrl) %>
+</span>
+</div>
 </form>
 </body>
 </html>
