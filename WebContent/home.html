@@ -4,7 +4,19 @@
 <meta charset="UTF-8">
 <title>欢迎您！</title>
 <style type="text/css">
-ul 
+body
+{
+	background-image:url(imag/bg.png);
+	backfroud-repeat:none;
+	filter:alpha(opacity=20);
+	-moz-opacity:0.8;
+	opacity:0.8;
+}
+.header
+{
+	background-color:#CCFFCC;
+}
+.header ul 
 {
 	list-style-type: none;
 	padding:0;
@@ -15,7 +27,7 @@ li
 {
 	float:left;
 }
-a:link, a:visited
+.header a:link, .header a:visited
 {
 	margin-top:50px;
 	display:block;
@@ -27,7 +39,7 @@ a:link, a:visited
 	text-decoration:none;
 	
 }
-a:hover
+.header a:hover
 {
 	color:#669966;
 }
@@ -35,10 +47,12 @@ a:hover
 </style>
 </head>
 <body>
+<div class=header>
 <ul>
 <li><a href="http://localhost:8080/addressList/home.html">主页</a></li>
 <li><a href="http://localhost:8080/addressList/addContact.jsp?action=add">新建联系人</a></li>
-<li><a href="http://localhost:8080/addressList/ContactController?action=findAll">所有联系人</a></li>
+<li><a href="http://localhost:8080/addressList/ContactController?action=findAll" target="_blank">所有联系人</a></li>
 </ul>
+</div>
 </body>
 </html>

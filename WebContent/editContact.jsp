@@ -5,44 +5,42 @@
 <head>
 <meta charset="utf-8">
 <style type="text/css">
-fieldset
+.form
 {
 	width:50%;
 	margin:0 auto;
 	align:center;
 	position:relative;
+	top:100px;
+	border: 1px solid #CCCC99;
+	pading:8px;
+}
+.caption
+{
+	text-align:center;
+	font-size:25px;
+	position:relative;
+	top:110px;
+	left:-100px;
+}
+.form:hover
+{
+	border:2px solid gray;
 }
 table
 {
 	margin:0 auto;
 	text-align:center;
 }
-ul 
+th
 {
-	list-style-type: none;
-	padding:0;
-	margin:0;
-	overfrow:hidden;
+	text-align:right;
+	position:relative;
+	left:-10px;
 }
-li
+td
 {
-	float:left;
-}
-ul a:link, ul a:visited
-{
-	margin-top:50px;
-	display:block;
-	width:100%;
-	font-weigth:bold;
-	background-color:#CCFFCC;
-	text-align:center;
-	padding:6px;
-	text-decoration:none;
-	
-}
-ul a:hover
-{
-	color:#669966;
+	text-align:left;
 }
 </style>
 <title>修改联系人</title>
@@ -59,14 +57,9 @@ String workAddress = (String)request.getAttribute("workAddress");
 String homeAddress = (String)request.getAttribute("homeAddress");
 String description = (String)request.getAttribute("description");
 %>
-<ul>
-<li><a href="http://localhost:8080/addressList/home.html">主页</a></li>
-<li><a href="http://localhost:8080/addressList/addContact.jsp?action=add">新建联系人</a></li>
-<li><a href="http://localhost:8080/addressList/ContactController?action=findAll">所有联系人</a></li>
-</ul>
-<div>
-<fieldset>
-<legend>修改联系人</legend>
+<jsp:include page="home.html" />
+<p class="caption">修改联系人</p>
+<div class="form">
 <form action="/addressList/ContactController" method="post" >
 <input type="hidden" name="action" value="save" />
 <input type="hidden" name="id" value="<%= id %>" />
@@ -133,7 +126,6 @@ String description = (String)request.getAttribute("description");
 
 </table>
 </form>
-</fieldset>
 </div>
 </body>
 </html>

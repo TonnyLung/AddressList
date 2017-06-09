@@ -29,6 +29,10 @@ function myFunction2()
 }
 </script>
 <style type="text/css">
+body
+{
+	positon:relative;
+}
 table
 {
 	font-family:Microsoft YaHei;
@@ -37,12 +41,12 @@ table
 	border-collapse:collapse;
 	text-align:center;
 }
-#contact td, #contact th
+.contact td, .contact th
 {
 	border:1px solid gray;
 	padding:5px;
 }
-#first
+.first
 {
 	background-color:#DDDDDD;
 }
@@ -54,7 +58,7 @@ caption
 	margin-top:25px;
 	margin-bottom: 8px;
 }
-#fetchContact
+.fetchContact
 {
 	font-size:0.7em;
 	margin-top:10px;
@@ -69,42 +73,11 @@ caption
 	text-align:right;
 	margin:0;
 }
-ul 
-{
-	list-style-type: none;
-	padding:0;
-	margin:0;
-	overfrow:hidden;
-}
-li
-{
-	float:left;
-}
-ul a:link, ul a:visited
-{
-	margin-top:50px;
-	display:block;
-	width:100%;
-	font-weigth:bold;
-	background-color:#CCFFCC;
-	text-align:center;
-	padding:6px;
-	text-decoration:none;
-	
-}
-ul a:hover
-{
-	color:#669966;
-}
 </style>
 <title>联系人</title>
 </head>
+
 <body>
-<ul>
-<li><a href="http://localhost:8080/addressList/home.html">主页</a></li>
-<li><a href="http://localhost:8080/addressList/addContact.jsp?action=add">新建联系人</a></li>
-<li><a href="http://localhost:8080/addressList/ContactController?action=findAll">所有联系人</a></li>
-</ul>
 <form action="/addressList/ContactController" method="get">
 <p id="col"></p>
 <%
@@ -123,9 +96,11 @@ if(message != null){
 <%
 }
 %>
-<table id="contact">
+<jsp:include page="home.html" />
+<div>
+<table class="contact">
 <caption id="alert">联系人列表</caption>
-<tr id="first">
+<tr class="first">
 <th></th>
 <th>ID</th>
 <th>姓名</th>
@@ -173,13 +148,14 @@ for(int i = 0; i < list.size(); i++) {
 } else {
 %>
 </table>
+</div>
 <script>
 	document.getElementById("col").innerHTML = "您的联系人名单为空！！！";
 </script>
 <%
 }
 %>
-<table id="fetchContact">
+<table class="fetchContact">
 <tr>
 <td>
 	<input type="hidden" name="action" value="delete" />
