@@ -6,11 +6,29 @@
 <style type="text/css">
 body
 {
+	margin:0px;
+	padding:0px;
+	box-sizing:border-box;
 	background-image:url(imag/bg.png);
 	backfroud-repeat:none;
-	filter:alpha(opacity=20);
-	-moz-opacity:0.8;
-	opacity:0.8;
+}
+.h
+{
+	width: 100%;
+	height: auto;
+	padding: 30px;
+	background-image: url(imag/h.gif);
+	position: fixed;
+	background-attachment: fixed;
+}
+.h span
+{
+	color: #99CC00;
+	font-family:Arial Lucida Grande Verdana;
+	font-size: 35px;
+	font-weigth: bold;
+	letter-spacing: 20px;
+	margin: 70px;
 }
 .header
 {
@@ -29,7 +47,7 @@ li
 }
 .header a:link, .header a:visited
 {
-	margin-top:50px;
+	margin-top:105px;
 	display:block;
 	width:100%;
 	font-weigth:bold;
@@ -47,6 +65,9 @@ li
 </style>
 </head>
 <body>
+<div class="h">
+<span>通 讯 录</span>
+</div>
 <div class=header>
 <ul>
 <li><a href="http://localhost:8080/addressList/home.html">主页</a></li>
