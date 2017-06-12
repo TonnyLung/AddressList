@@ -6,7 +6,7 @@
 		 					id="WebApp_ID" version="3.1">
   <servlet>
     <servlet-name>log4j-init</servlet-name>
-    <servlet-class>com.log.Log4jInit</servlet-class>
+    <servlet-class>tongxunlu.Log4jInit</servlet-class>
     <init-param>
       <param-name>log4j-init-file</param-name>
       <param-value>WEB-INF/classes/log4j.properties</param-value>
