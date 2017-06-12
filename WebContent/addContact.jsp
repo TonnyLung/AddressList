@@ -29,11 +29,11 @@ function volidate1(form) {
 <style type="text/css">
 .form
 {
-	width:50%;
+	width:40%;
 	margin:0 auto;
 	align:center;
 	position:relative;
-	top:100px;
+	top:130px;
 	border: 1px solid #CCCC99;
 	pading:8px;
 }
@@ -46,7 +46,7 @@ function volidate1(form) {
 	text-align:center;
 	font-size:25px;
 	position:relative;
-	top:110px;
+	top:140px;
 	left:-100px;
 }
 table
