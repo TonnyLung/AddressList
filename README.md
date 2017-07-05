@@ -27,7 +27,7 @@
 
 下面是src中主要代码的包及其目录下的类展示图  
 
-![image](http://note.youdao.com/yws/api/personal/file/1D151CC0F15D41B29403EE1263BCCA1F?method=download&shareKey=6d79f7ca481052783d3270aa04cdc94d)
+![image](http://note.youdao.com/yws/api/personal/file/B3A33FD8890E40088645936282767B83?method=download&shareKey=bda0d9e6901683f7fbd1026c4213812c)
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;视图（view）客户端提供请求输入，请求提交后，视图会将请求交给ContactController控制器类，而ContactContoller类对请求中的模型数据不做任何处理，而是通request.getParameter("action")；来获得"action"参数值，通过不同的action参数值来判断将请求交给ContactModel类中的哪个方法来处理请求。servlet类之间的请求转发是通过request.getRequestDispatcher(" “).forward(request, response);来实现的。
 
