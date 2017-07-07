@@ -33,7 +33,7 @@
 
 ![image](http://note.youdao.com/yws/api/personal/file/C71A4CFB6C9946CABC2F38DCB25C9D57?method=download&shareKey=a3efd91629f4c277f49dbbe467f53838)
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ContactModel类的任务是获得请求中的数据，并做相应的处理后交给ContactDAOImpl类来对接数据库从而实现对数据的处理。而在业务处理的过程中有用到一些其他util类来帮助处理其中的某些业务。比如BeanHandler类是处理实体类Contact与数据库中的字段间的映射; ContactUtil类是用来封装对数据库的CRUD。
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ContactModel类的任务是获得请求中的数据，并做相应的处理后交给ContactDAOImpl类来对接数据库从而实现对数据的处理。而在业务处理的过程中有用到一些其他util类来帮助处理其中的某些业务。比如BeanHandler类是处理实体类Contact与数据库中的字段间的映射; ContactUtil类是用来封装对数据库的CRUD。   
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;模型（model）处理完业务后会将请求与数据转发给处理器类ContactContoller，处理器类也是通过模型转发的action参数值来判断将模型与请求交给哪个视图（view）来渲染输出。
 DataSource类封装了数据源。
 
